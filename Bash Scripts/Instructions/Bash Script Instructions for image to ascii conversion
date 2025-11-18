@@ -1,0 +1,312 @@
+[Prompt for ChatGPT]
+-Can you please make a bash script to use on linux mint to do the following things when I run it?
+-You may ask my as many questions you want so that the instructions are clear to you so that you may help me with this and do the necessary.
+
+
+[Run the following command]
+Sudo apt install jp2a imagemagick chafa
+
+[Instructions]
+-Create an images into acii converter with ansi escape code.
+-Height and width auto calculation. (aspect ratio)
+-Output to a seperate file.
+-Add descriptions to the whole script for easier customization.
+-You may use unicode characters as well. 
+-Add an extensive help section.
+-Chafa and jp2a are to have the blocks preset and the others are just for chafa. (make the --random-all command know that)
+
+[Features]
+#   • Global randomization (--random-all) with full preview
+#   • Chafa default, jp2a fallback
+#   • Styles/Presets
+#   • Custom characters (-ch)
+#   • Width/height (-w/-h)
+#   • Padding (-pt/-pb/-pl/-pr)
+#   • Color modes: auto / 256 / truecolor
+#   • Full ASCII preview (--preview)
+#   • Help (--help)
+#   • Engine-aware style mapping
+#   • Character fallback (if some characters or styles don't work with chafa, fallback to jp2a and vice versa)
+
+
+[Options to add for customizability]
+-Different character styles.
+-Different colour options. (colour support)
+-Automatic aspect ratio but has options to use different height and width.
+-Optional custom output file name. 
+-Global Randomization (randomize every option unless manually overwritten)
+-Preview image
+-Different colour modes
+-Charset presets + custom charset
+-Automatic aspect ratio calculation
+-Dependency checks and guided install
+-Padding colour
+
+[Extra options]
+#
+# ASCII Converter: Convert images to ASCII art with jp2a or chafa
+#
+# Usage:
+#   ./ascii.sh -i <input_image> [options]
+#
+# Options:
+#   -i <image>           Input image file (required)
+#   -o <output_file>     Output file to save ASCII art (default: ascii_output.txt)
+#   -w <width>           Custom width for output ASCII art (overrides auto sizing)
+#   -h <height>          Custom height for output ASCII art (overrides auto sizing)
+#   -s <style>           Style for jp2a engine (default: standard)
+#   -ch <chars>          Custom characters for jp2a engine (overrides -s)
+#   -pt <percent>        Padding top in percent of image height (default: 0)
+#   -pb <percent>        Padding bottom in percent of image height (default: 0)
+#   -pl <percent>        Padding left in percent of image width (default: 0)
+#   -pr <percent>        Padding right in percent of image width (default: 0)
+#   -c <color_mode>      Color mode: auto (default), none, 256, truecolor
+#   -e <engine>          ASCII engine to use: jp2a (default), chafa
+#   --symbols <set>      Symbol set for chafa (block, ascii, braille, etc.)
+#   --fg-only            Use only foreground colors (chafa only)
+#   --preview            Show generated ASCII art in terminal after creation
+#   --random-all         Randomize all unspecified settings (style, symbols, colors, paddings… 
+#                        and randomly toggle --fg-only for chafa if not explicitly set)
+#   --help               Show this help message and exit
+#
+# jp2a Styles (-s):
+#   standard       → A@#&%*+:-.
+#   fullblocks     → ██
+#   net            → 🮐🮐
+#   bars           → █▌▐
+#   cutblock       → 🭁🭁
+#   agean          → 𐄊𐄎𐄗𐄞𐄧𐄳
+#   chess          → ♜♞♝♛♚♝♞♜♟♙♖♘♗♕♔♗♘♖
+#   dots           → •°·.
+#   fade           → @B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|(){}[]?-_+~<>i!;:,.
+#   braille        → ⣀⣁⣂⣃⣄⣅⣆⣇⣈⣉⣊⣋⣌⣍⣎⣏⣐⣑⣒⣓⣔⣕⣖⣗⣘⣙⣚⣛⣜⣝⣞⣟⣠⣡⣢⣣⣤⣥⣦⣧⣨⣩⣪⣫⣬⣭⣮⣯⣰⣱⣲⣳⣴⣵⣶⣷⣸⣹⣺⣻⣼⣽⣾⣿
+#   enclosed       → 🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩
+#   fade           → '@B%8&WM#*oahkbdpqwmZ0OQLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,"^`\'.
+#   alchemy        → 🜀🜁🜂🜃🜄🜅🜆🜇🜈🜉... (full Unicode alchemy set)
+#   greek          → ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω
+#   runes          → ᚠᚡᚢᚣᚤᚥ... (full runic set)
+#   border         → ─│┌┐└┘
+#   fwquartersquare→ 🙾🙾
+#   bwquartersquare  → 🙿🙿
+#   fwslash        → 🙼🙼
+#   bwslash        → 🙽🙽
+#   floral         → 🙨🙪
+#   music          → 𝄞𝄆𝄇♩♪♫♬
+#   ornaments      → ♡♥❤❥❢❣❡☙❦❧🙰🙱🙲...🙭 
+#   cuneiform      → 𒄙𒄩𒄦𒃽...𒃷
+#   dominoh        → 🁣🁤🁥...🂓🁢
+#   dominov        → 🀱🀲🀳...🁡🀰
+#   cards          → 🂱🂲🂳...🃞🂠🃟
+#   tinycards      → 🂿🃠🃡...🃵
+#   suits          → ♠♣♥♦♤♧♡♢
+#   hieroglyphs    → 𓇈𓆅𓇙...𓅶
+#   hexagram       → ䷀䷁䷂...䷿
+#   geometricshapes→ 🞄●⬤◯⚬○...⯄
+#   stars          → ★⭑🟉🟊☆⭒...❆✿❀❁✾
+#   mahajong       → 🀇🀈🀉...🀪
+#   domino         → 🁣🁤🁥...🀰
+#   playingcards   → ♠♣♥♦♤♧♡♢...🃵
+#
+# chafa Symbols (--symbols):
+#   block      → █ ▓ ▒ ░
+#   ascii      → @ # % * + - :
+#   braille    → ⠁ ⠃ ⠉ ⠙ ⠿
+#   sextant    → ▀ ▄ █ ▐ ▌
+#   quad       → ▖ ▘ ▚ ▞
+#   border     → ─ │ ┌ ┐ └ ┘
+#   space      → (whitespace only)
+#
+# Examples:
+#   ./ascii.sh -i image.png --preview
+#   ./ascii.sh -i photo.jpg -o output.txt -w 100 -h 40 -s dense -c truecolor
+#   ./ascii.sh -i pic.png --random-all --preview -o rand_output.txt
+#
+# Notes:
+# - Requires 'jp2a' or 'chafa' installed for ASCII conversion.
+# - Requires 'identify' from ImageMagick for image dimensions.
+# - Padding is spacing only (no background color applied).
+# - The preview prints ASCII art, not the original image.
+#
+
+
+[Dependancies]
+-jp2a
+-imagemagick
+-chafa
+
+
+[This applies to everything]-"Important"
+-Check for dependencies before running the script.
+-Always ask y/n before installing anything.
+
+
+# ========== Style mapping (JP2A only) ==========
+
+            standard) JP2A_CHARS="--chars=A@#&%*+:-." ;;
+            fullblocks) JP2A_CHARS="--chars=██" ;;   
+            net) JP2A_CHARS="--chars=🮐🮐" ;;
+            bars) JP2A_CHARS="--chars=█▌▐" ;;
+            cutblock) JP2A_CHARS="--chars=🭁🭁" ;;
+            agean) JP2A_CHARS="--chars=𐄊𐄎𐄗𐄞𐄧𐄳" ;;
+            chess) JP2A_CHARS="--chars=♜♞♝♛♚♝♞♜♟♙♖♘♗♕♔♗♘♖" ;;
+            dots) JP2A_CHARS="--chars=•°·." ;;            
+            fade) JP2A_CHARS="--chars=@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|(){}[]?-_+~<>i!;:,." ;;
+            braille) JP2A_CHARS="--chars=⣀⣁⣂⣃⣄⣅⣆⣇⣈⣉⣊⣋⣌⣍⣎⣏⣐⣑⣒⣓⣔⣕⣖⣗⣘⣙⣚⣛⣜⣝⣞⣟⣠⣡⣢⣣⣤⣥⣦⣧⣨⣩⣪⣫⣬⣭⣮⣯⣰⣱⣲⣳⣴⣵⣶⣷⣸⣹⣺⣻⣼⣽⣾⣿" ;;
+            enclosed) JP2A_CHARS="--chars=🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩" ;;
+            fade) JP2A_CHARS="--chars=@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\\|()1{}[]?-_+~<>i!lI;:,'\"^. " ;;
+            alchemy) JP2A_CHARS="--chars=🜀🜁🜂🜃🜄🜅🜆🜇🜈🜉🜊🜋🜌🜍🜎🜏🜐🜑🜒🜓🜔🜕🜖🜗🜘🜙🜚🜛🜜🜝🜞🜟🜠🜡🜢🜣🜤🜥🜦🜧🜨🜩🜪🜫🜬🜭🜮🜯🜰🜱🜲🜳🜴🜵🜶🜷🜸🜹🜺🜻🜼🜽🜾🜿🝀🝁🝂🝃🝄🝅🝆🝇🝈🝉🝊🝋🝌🝍🝎🝏🝐🝑🝒🝓🝔🝕🝖🝗🝘🝙🝚🝛🝜🝝🝞🝟🝠🝡🝢🝣🝤🝥🝦🝧🝨🝩🝪🝫🝬🝭🝮🝯🝰🝱🝲🝳" ;;
+            greek) JP2A_CHARS="--chars=ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρστυφχψω" ;;
+            runes) JP2A_CHARS="--chars= ᚠᚡᚢᚣᚤᚥᚦᚧᚨᚩᚪᚫᚬᚭᚮᚯᚰᚱᚲᚳᚴᚵᚶᚷᚸᚹᚺᚻᚼᚽᚾᚿᛀᛁᛂᛃᛄᛅᛆᛇᛈᛉᛊᛋᛌᛍᛎᛏᛐᛑᛒᛓᛔᛕᛖᛗᛘᛙᛚᛛᛜᛝᛞᛟᛠᛡᛢᛣᛤᛥᛦᛧᛨᛩᛪ᛫᛬᛭ᛴᛵᛶᛷᛸᛮᛯᛰᛱᛲᛳ" ;;
+            border) JP2A_CHARS="--chars=─│┌┐└┘" ;;
+            fwquartersquare) JP2A_CHARS="--chars=🙾🙾" ;;
+            bwquartersquare) JP2A_CHARS="--chars=🙿🙿" ;;
+            fwslash) JP2A_CHARS="--chars=🙼🙼" ;;
+            bwslash) JP2A_CHARS="--chars=🙽🙽" ;;
+            floral) JP2A_CHARS="--chars=🙨🙪" ;;
+            music) JP2A_CHARS="--chars=𝄞𝄆𝄇♩♪♫♬" ;;
+            ornaments) JP2A_CHARS="--chars=♡♥❤❥❢❣❡☙❦❧🙰🙱🙲🙳🙴🙵🙐🙑🙒🙓🙔🙕🙖🙗🙚🙘🙛🙙🙞🙜🙟🙝🙠🙡🙢🙣🙤🙥🙦🙧🙬🙭🙮🙯🙶🙷🙸" ;;
+            cuneiform) JP2A_CHARS="--chars=𒄙𒄩𒄦𒃽𒄣𒃫𒁽𒃠𒄉𒄂𒂌𒄇𒃰𒂜𒃿𒄆𒃠𒃦𒂞𒂸𒁾𒄈𒃼𒃯𒄜𒂀𒄡𒃡𒁺𒃳𒃪𒃲𒂻𒂍𒃺𒂶𒄤𒃾𒄥𒂝𒃥𒃹𒃾𒄋𒃲𒃸𒄜𒃚𒃭𒃔𒃞𒄃𒄢𒄞𒄧𒄫𒄇𒃮𒃛𒂈𒃜𒃩𒃹𒃺𒄆𒃙𒁾𒃟𒂃𒂌𒄖𒄧𒃭𒄚𒃝𒃯𒂽𒃡𒄉𒃸𒄛𒂎𒃴𒄌𒄛𒄘𒄨𒄗𒃧𒃻𒄞𒃕𒄁𒃣𒄨𒃻𒃖𒂂𒄍𒃚𒂝𒄅𒄄𒃥𒃓𒂠𒃤𒃘𒄟𒂍𒃝𒄃𒃷𒁽𒄬𒃩𒂀𒃮𒄠𒃱𒂎𒂺𒃙𒄗𒄦𒃘𒄌𒃕𒃬𒂼𒃼𒄒𒄄𒃷𒄟𒂃𒃓𒃞𒃳𒃔𒃱𒄙𒄤𒂈𒄖𒁻𒃢𒄢𒄂𒃿𒁿𒃣𒄫𒃽𒂞𒄀𒃗𒂜𒄅𒄚𒁿𒄠𒄍𒄝𒂂𒂁𒄪𒂵𒃖𒄊𒄩𒁹𒄎𒃶𒃗𒂾𒄥𒄁𒁼𒄎𒄝𒃰𒂿𒃛𒃨𒄒𒃜𒃬𒃨𒃶𒄪𒄀𒃫𒄘𒃴𒄊𒃤𒄡𒂁𒃪𒂠𒄈𒃟𒃦" ;;
+            dominoh) JP2A_CHARS="--chars=🁣🁤🁥🁦🁧🁨🁩🁪🁫🁬🁭🁮🁯🁰🁱🁲🁳🁴🁵🁶🁷🁸🁹🁺🁻🁼🁽🁾🁿🂀🂁🂂🂃🂄🂅🂆🂇🂈🂉🂊🂋🂌🂍🂎🂏🂐🂑🂒🂓🁢" ;;
+            dominov) JP2A_CHARS="--chars=🀱🀲🀳🀴🀵🀶🀷🀸🀹🀺🀻🀼🀽🀾🀿🁀🁁🁂🁃🁄🁅🁆🁇🁈🁉🁊🁋🁌🁍🁎🁏🁐🁑🁒🁓🁔🁕🁖🁗🁘🁙🁚🁛🁜🁝🁞🁟🁠🁡🀰" ;;
+            cards) JP2A_CHARS="--chars=🂱🂲🂳🂴🂵🂶🂷🂸🂹🂺🂻🂼🂽🂾🂡🂢🂣🂤🂥🂦🂧🂨🂩🂪🂫🂬🂭🂮🃁🃂🃃🃄🃅🃆🃇🃈🃉🃊🃋🃌🃍🃎🃑🃒🃓🃔🃕🃖🃗🃘🃙🃚🃛🃜🃝🃞🂠🃟" ;;
+            tinycards) JP2A_CHARS="--chars=🂿🃠🃡🃢🃣🃤🃥🃦🃧🃨🃪🃫🃬🃭🃮🃯🃰🃱🃲🃳🃴🃵" ;;
+            suits) JP2A_CHARS="--chars=♠♣♥♦♤♧♡♢" ;;
+            hieroglyphs) JP2A_CHARS="--chars=𓄒𓄇𓎌𓍸𓄧𓁽𓇼𓇩𓎘𓂪𓇞𓂱𓆆𓇜𓂦𓁾𓎔𓍀𓍌𓊨𓎤𓆅𓏟𓎓𓍦𓏃𓄎𓄒𓄲𓂨𓇈𓆅𓇙𓍨𓇥𓆇𓍃𓄢𓄮𓍐𓇖𓍗𓁘𓄳𓄙𓄏𓂼𓋆𓍂𓊦𓁋𓎪𓋒𓇮𓄉𓏛𓅴𓆀𓋕𓍅𓄠𓆀𓊎𓇶𓏏𓍰𓇎𓊮𓊮𓍫𓆀𓂿𓁏𓇗𓎥𓂿𓎹𓇕𓊣𓏏𓎯𓎡𓇠𓎑𓇗𓏠𓆇𓇎𓎎𓋖𓄞𓇨𓍞𓆄𓋗𓄴𓏂𓆆𓄄𓊙𓂉𓍈𓍸𓊙𓂔𓎩𓇌𓂙𓇜𓊗𓂣𓇄𓋜𓏞𓊄𓍪𓇗𓇐𓄤𓇿𓊻𓏖𓄭𓎮𓂧𓇄𓄧𓅶𓎂𓎂𓆆𓎄𓄑𓇍𓊆𓋏𓄃𓆇𓄊𓂢𓇀𓂝𓇹𓇱𓍕𓇚𓆄𓎣𓄤𓋆𓊗𓍼𓄤𓂿𓍠𓅨𓎔𓂾𓊗𓊯𓎼𓇽𓍹𓇑𓆇𓇼𓊗𓂼𓎭𓍭𓎫𓄻𓎗𓍄𓇹𓄨𓍭𓎃𓎄𓍧𓍱𓊡𓄘𓆇𓎡𓎞𓇬𓎒𓇚𓆇𓇗𓋗𓆇𓇷𓋚𓊣𓂽𓎵𓄖𓏗𓏄𓊄𓆆𓇷𓎔𓄐𓄡𓊲𓏆𓍻" ;;
+
+            hexagram) JP2A_CHARS="--chars=䷀䷁䷂䷃䷄䷅䷆䷇䷈䷉䷊䷋䷌䷍䷎䷏䷐䷑䷒䷓䷔䷕䷖䷗䷘䷙䷚䷛䷜䷝䷞䷟䷠䷡䷢䷣䷤䷥䷦䷧䷨䷩䷪䷫䷬䷭䷮䷯䷰䷱䷲䷳䷴䷵䷶䷷䷸䷹䷺䷻䷼䷽䷾䷿" ;;
+            geometricshapes) JP2A_CHARS="--chars=🞄●⬤◯⚬○🞅🞆🞇🞈🞉◌❍🔾🔿◙◍🞊🞋◴◵◶◷◔◕◖◗⯊⯋◚◛◐◑◓◒⚆⚇⚈⚉◜◝◞◟◠◡⯀■◼▪🞍🞌□◻▫🞎🞏🞐🞑🞒🞓🞔▣🞕🞖⧆⧇⧈⛋▢⧉⧠❏❐❑❒◰◱◲◳◧◨◩◪◫⧄⧅🟗🟘▤▥▦▧▨▩▬▮▭▯◬⟁⛛◀▶▲▼⯇⯈⯅⯆◂▸▴▾◁▷△▽◃▹▵▿🞀🞂🞁🞃◸◹◺◿◤◥◣◢◭◮⧨⧩🟕🟖⯁◆⬥🞙⬩🞘🞗❖♦♢◇⬦🞛◈🞚⟐🞜⬖⬗⬘⬙⯌⯎⟡⯍⯏⌑◊⧫🞟🞝🞞🞠▰▱⬟⯂⬢⬣⯃⯄" ;;
+            stars) JP2A_CHARS="--chars=★⭑🟉🟊☆⭒⚝✩✯✰✪✫✬✭✮⛤⛥⛦⛧🟀🟁🟂🟃✦✧🟄🟅🟆🟇🟈🟋🟌🟍✶✡✴❂✵✷✸🟎🟏🟐🟑✹🟒🟓🟔*⁎⁑✱✲⧆꙳✻✼✽❃❉✢✣✤✥🞯🞰🞱🞲🞳🞴🞵🞶🞷🞸🞹🞺🞻🞼🞽🞾🞿✳❊❋✺❇❈❄❅❆✿❀❁✾" ;;
+            mahajong) JP2A_CHARS="--chars=🀇🀈🀉🀊🀋🀌🀍🀎🀏🀐🀑🀒🀓🀔🀕🀖🀗🀘🀙🀚🀛🀜🀝🀞🀟🀠🀡🀀🀁🀂🀃🀢🀣🀤🀥🀦🀧🀨🀩🀅🀆🀪" ;;
+            domino) JP2A_CHARS="--chars=🁣🁤🁥🁦🁧🁨🁩🁪🁫🁬🁭🁮🁯🁰🁱🁲🁳🁴🁵🁶🁷🁸🁹🁺🁻🁼🁽🁾🁿🂀🂁🂂🂃🂄🂅🂆🂇🂈🂉🂊🂋🂌🂍🂎🂏🂐🂑🂒🂓🁢🀱🀲🀳🀴🀵🀶🀷🀸🀹🀺🀻🀼🀽🀾🀿🁀🁁🁂🁃🁄🁅🁆🁇🁈🁉🁊🁋🁌🁍🁎🁏🁐🁑🁒🁓🁔🁕🁖🁗🁘🁙🁚🁛🁜🁝🁞🁟🁠🁡🀰" ;;
+            playingcards) JP2A_CHARS="--chars=♠♣♥♦♤♧♡♢🂱🂲🂳🂴🂵🂶🂷🂸🂹🂺🂻🂼🂽🂾🂡🂢🂣🂤🂥🂦🂧🂨🂩🂪🂫🂬🂭🂮🃁🃂🃃🃄🃅🃆🃇🃈🃉🃊🃋🃌🃍🃎🃑🃒🃓🃔🃕🃖🃗🃘🃙🃚🃛🃜🃝🃞🂠🃟🂿🃠🃡🃢🃣🃤🃥🃦🃧🃨🃪🃫🃬🃭🃮🃯🃰🃱🃲🃳🃴🃵" ;;
+            *) JP2A_CHARS="" ;;
+
+
+# ========== Randomization Arrays ==========
+ENGINES=("jp2a" "chafa")
+JP2A_STYLES=("standard" "fullblock" "net" "bars" "fade" "braille" "enclosed" "greek" "runes" "alchemy" "hieroglyphs" "cuneiform" "ornaments" "cutblock" "agean" "chess" "dots" " fade" " border" "fwquartersquare" "bwquartersquare" "fwslash" "bwslash" "floral" "music" "dominoh" "dominov" "cards" "tinycards" "suits" "hexagram" "geometricshapes" "stars" "mahajong" "domino" "playingcards")
+CHAFA_SYMBOL_SETS=("block" "ascii" "braille" "sextant" "quad" "border" "space")
+COLOR_MODES=("auto" "none" "256" "truecolor")
+CUSTOM_CHARS_OPTIONS=("" "@%#*+=-:. " "01" "ⒶⒷ🄰🄱🅐🅑①②" "⠁⠃⠉⠙⠿" "▓▒░" "@Oo*+-." "•°·." "ΣΠ∞∂≈√" "#*·")
+
+
+[Questions]
+Before I start scripting, a few questions to make sure I fully understand your needs:
+
+Character styles:
+Could you specify what you mean by different character styles?
+# Truecolor halfblock (default)
+./image_to_ascii_ansi.sh image.png 80 40 output.ansi truecolor halfblock
+cat output.ansi
+
+# Truecolor fullblock (one pixel per char)
+./image_to_ascii_ansi.sh image.png 80 40 output_fullblock.ansi truecolor fullblock
+cat output_fullblock.ansi
+
+# Truecolor shaded chars (colored)
+./image_to_ascii_ansi.sh image.png 80 40 output_shade.ansi truecolor shade
+cat output_shade.ansi
+
+# ASCII grayscale art with default charset
+./image_to_ascii_ansi.sh image.png 80 40 output_ascii.txt ascii
+
+# ASCII grayscale art with custom charset (more granularity)
+./image_to_ascii_ansi.sh image.png 80 40 output_ascii_custom.txt ascii "@%#*+=-:. "
+
+# ASCII grayscale art with a longer charset for finer detail
+./image_to_ascii_ansi.sh image.png 80 40 output_ascii_fine.txt ascii "MNHQ$OC?7>!:-;."
+
+Do you want different sets of ASCII characters for the art (e.g., standard grayscale, blocks, custom chars)?
+Yes
+
+Should I include predefined sets or allow custom input strings?
+both
+
+Color options:
+
+jp2a supports --color and --colors (number of colors). Do you want the ability to choose between colored output or grayscale only?
+even more as possible, I want to make it extremely customizable.
+
+Any other color modes or color depth options you'd like?
+IF there are any more then sure, add them as well.
+
+Height and width options:
+
+If both height and width are given, should the script preserve aspect ratio by adjusting one accordingly, or strictly use provided dimensions?
+use the dimentions.
+
+If neither is provided, you want it auto-calculated based on the original image and terminal/font aspect ratio, correct?
+yes
+
+Output filename:
+
+If no filename is specified, what should the default be? (e.g., input filename with .ansi.txt suffix)
+custom-logo.txt
+
+User interface:
+
+Do you want to pass options as command-line arguments, or be prompted interactively after running the script?
+both please
+
+Or a mix (some flags with optional interactive prompts)?
+this too
+
+Error handling:
+
+Should the script abort on missing dependencies or try to install automatically after user confirmation?
+install after confirmation
+
+What package manager do you prefer for installation prompts? (I assume apt for Linux Mint)
+yes, apt
+
+Image formats:
+
+Should the script accept any image format supported by ImageMagick (like jpg, png, gif, etc.)?
+yes
+ **Unicode & ANSI in output**:
+   Should the ANSI color codes remain even in file output, or only for terminal preview?
+both 
+
+ **Randomization**:
+   Should `--random-all` override all user-specified options, or just unspecified options?
+just the unspecified ones
+
+ **Terminal preview**:
+   Should it display full width in terminal, or scaled to terminal size?
+terminal size
+
+ **Padding behavior**:
+   Padding % applies **after resizing**—correct?
+yes 
+
+ **Custom charset input**:
+   Should the script validate the charset length or accept anything?
+minimum 2 characters
+
+ **Output file extension**:
+   Default is `custom-logo.txt`. Should `.ansi` be used for color output?
+.txt is to be used at all times unless renamed by the user
+
+For true ANSI colors, chafa is preferred over jp2a, but should we force jp2a fallback if chafa fails?
+yes
+
+Should preview mode use full terminal width automatically if width is not specified?
+terminal width automatically
+
+For randomization, do you want it to pick different styles each run even if the same image is used?
+yes
+
+Chafa presets: You want the blocks preset to be the default for both chafa and jp2a, and all other presets are for chafa only—is that correct?
+blocks preset is default for chafa but not for jp2a, ascii is default for jp2a. jp2a can use all other presets as well.
+
+Preview mode (--preview): Should it always use terminal width, even if user specifies -w?
+no, if use specifies any -w or -h, it would be overwritten.
+
+Randomization (--random-all): Should this only randomize unspecified options, and leave explicitly set options untouched?
+yes 
+
+Color modes: Should jp2a’s --colors and chafa’s --colors map to your auto/256/truecolor options automatically?
+yes, unless specified by the user
+
+Fallback behavior: If chafa fails for a style or charset, should it automatically fall back to jp2a without aborting?
+yes

@@ -1,0 +1,95 @@
+[Prompt for ChatGPT]
+-Can you please make a bash script to use on linux mint to do the following things when I run it?
+-You may ask my as many questions you want so that the instructions are clear to you so that you may help me with this and do the necessary.
+
+
+[Instructions]
+-Disable repository restrictions with the help of this by adding "#" to the second line of code:
+"sudo nano /etc/apt/sources.list"
+
+-Run this command:
+"sudo apt update"
+
+-Install every .deb file from the following location:
+"/home/mint/Downloads/System Customization/AppImages & .deb files"
+
+-Ask if I want to install the following deb files:
+"/home/mint/Downloads/System Customization/AppImages & .deb files/Optional Debs/jp2a_1.1.1-2ubuntu2_amd64.deb"
+"/home/mint/Downloads/System Customization/AppImages & .deb files/Optional Debs/imagemagick_6.9.12.98+dfsg1-5.2build2_amd64.deb"
+
+-Ask if I want to install chafa, then run the following command:
+sudo apt install chafa
+(along with all its dependencies)
+
+-Install conky and conky manager2 with the help of these commands:
+"sudo add-apt-repository ppa:teejee2008/foss"
+"sudo apt update"
+"sudo apt install conky-manager2"
+(If conky is not installed using the above commands, install it using this deb file: "/home/mint/Downloads/System Customization/AppImages & .deb files/Optional Debs/conky-manager2_2.72_amd64.deb")
+(Add a fallback option when installing conky, if the PPAs aren't working, install from the provided deb file instead)
+
+-Ask before installing.
+-Run this command to install ohmyposh:
+"curl -s https://ohmyposh.dev/install.sh | bash -s"
+
+
+[This applies to everything]-"Important"
+-Ask everything at the start of the script.
+-Check if the packages were previously installed.
+-Ask before installing/updating/removing anything.
+-Skip any and all installed packages
+-Install and update the packages as necessary
+-Skip any step that has been previously completed. (Do ask for the confirmation if it is to be skipped or not)
+-"Ask all the questions at the very start of the script."
+-All the steps are to be done in order typed, nothing is to be done before the other
+-Everything is for the current user.
+-Please label everthing to make it easier to edit the bash file.
+-Once everything is done, please clean and remove all the unused and unnecessary packages after confirming to do so.
+-Remove the cloned GitHub folders after installation is complete.
+-Add descriptions to everything to make the script easier to understand.
+
+
+[Files/Folders to copy]
+-Copy "/home/mint/Downloads/System Customization/.fonts: to "/home/mint"
+
+-Copy "/home/mint/Downloads/System Customization/fastfetch" to "/home/mint/.config"
+
+-Copy "/home/mint/Downloads/System Customization/Wallpapers" to "/home/mint/Downloads"
+
+-Copy "/home/mint/Downloads/System Customization/fish" to "/home/mint/.config"
+
+-Copy "/home/mint/Downloads/System Customization/.conky" to "/home/mint"
+
+-Copy "/home/mint/Downloads/System Customization/btop" to "/home/mint/.config"
+
+
+[Questions]
+User and home directory:
+You’ve mentioned /home/mint/… in all paths. Should the script work only for the current logged-in user (using $HOME) or always assume the user mint? Using $HOME is safer for general use.
+-Current logged in user.
+
+Should each action have a yes/no prompt or should it be one big menu at the start asking for all actions at once?
+-One big menu at the start asking for all the actions at once.
+
+If a folder with the same name exists in ~/.conky, should it overwrite or skip?
+-It shouldn't exist, but if it does then ask before performing an action.
+
+Fonts and wallpapers:
+For fonts: Should it skip already existing fonts or overwrite them?
+-Skip existing fonts.
+
+For wallpapers: You want to copy to Downloads, but if a file already exists, overwrite or skip?
+-It shouldn't exist, but if it does then ask before performing an action.
+
+Oh My Posh install:
+Do you want to check if it’s installed first, or just run the installation script always?
+-Check before installation.
+
+For conky-manager2, same question: install latest from PPA or skip if installed?
+--Latest, but skip if the latest is installed.
+
+Colored logging: Do you want colored, timestamped output for all actions (install, copy, remove), or just plain logging?
+-Coloured, timestamped output.
+
+Conky folders overwrite check: If a folder like BG-main already exists in ~/.conky, should the script ask before overwriting, or just overwrite automatically?
+-Overwrite automatically.
