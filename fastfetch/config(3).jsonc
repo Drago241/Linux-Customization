@@ -1,0 +1,213 @@
+{
+  "logo": {
+    "type": "auto",                                            // Use automatic logo detection
+    "source": "/home/mint/Downloads/Linux Customization/Bash Scripts/image2term/ascii_output.txt", // Custom ASCII logo path
+    "width": 1,                                                 // Width of logo block (in characters)
+    "height": 1,                                                // Height of logo block (in lines)
+    "padding": {
+      "top": 2,                                                 // Push logo down
+      "left": 2,                                                // Indent logo from the left side
+      "right": 0                                               // Space between logo and text
+    },
+    "printRemaining": true                                      // Print remaining info (text/modules) beside the logo
+    },
+    "display": {
+        "separator": " "                                       // Moves text to the right. 
+    },
+    "modules": [
+        "break",
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[32m Turn On, Tune In.... Linux \u001b[0m"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[34m──────────── ⚡ ────────────\u001b[0m"
+        },
+        {
+            "type":  "title",
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[34m────────────────────────────\u001b[0m"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[32mSystem\u001b[0m"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[32m──────\u001b[0m"
+        },
+        {
+            "type": "os",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "de",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "wm",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "kernel",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "packages",
+            "format": "{} (pacman)",
+            "key": "󰏖 ",
+            "keyColor": "34",
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[32mTerminal\u001b[0m"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[32m────────\u001b[0m"
+        },
+        {
+            "type": "terminal",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "shell",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "terminalfont",
+            "key": " ",
+            "keyColor": "34",
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[32mEyecandy\u001b[0m"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[32m────────\u001b[0m"
+        },
+        {
+            "type": "wmtheme",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "theme",
+            "key": "󰔎 ",
+            "keyColor": "34",
+        },
+        {
+            "type": "icons",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "cursor",
+            "key": "󰳽 ",
+            "keyColor": "34",
+        },
+        {
+            "type": "font",
+            "key": "󰛖 ",
+            "keyColor": "34",
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "\u001b[32mGuts\u001b[0m"
+        },
+        {
+            "type": "custom",
+            "format": "\u001b[32m────\u001b[0m"
+        },
+        {
+            "type": "memory",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "swap",
+            "key": "󰣁 ",
+            "keyColor": "34",
+        },
+        {
+            "type": "disk",
+            "keyColor": "34",
+            "key": " ",
+            "folders": "/"
+        },
+        {
+            "type": "disk",
+            "keyColor": "34",
+            "key": " ",
+            "folders": "/mnt/Storage"
+        },
+        {
+            "type": "cpu",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "gpu",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "vulkan",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "uptime",
+            "key": " ",
+            "keyColor": "34",
+        },
+        "break",
+        {
+            "type": "custom",
+            "typeColor": "green",
+            "format": "\u001b[32mMedia\u001b[0m"
+        },
+        {
+            "type": "custom",
+            "typeColor": "green",
+            "format": "\u001b[32m─────\u001b[0m"
+        },
+        {
+            "type": "sound",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "media",
+            "key": " ",
+            "keyColor": "34",
+        },
+        {
+            "type": "player",
+            "key": " ",
+            "keyColor": "34", 
+        },
+        "break",
+        {
+            "type": "colors",
+            "paddingLeft": 26,
+            "symbol": "square"
+
+
+        }
+    ]
+}
