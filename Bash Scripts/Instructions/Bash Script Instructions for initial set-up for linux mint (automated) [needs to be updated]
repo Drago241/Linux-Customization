@@ -1,0 +1,61 @@
+[Prompt for ChatGPT]
+-Can you please make a bash script to use on linux mint to do the following things when I run it?
+-You may ask my as many questions you want so that the instructions are clear to you so that you may help me with this and do the necessary.
+
+
+[Instructions]
+-Disable repository restrictions with the help of this by adding "#" to the second line of code:
+"sudo nano /etc/apt/sources.list"
+
+-Run this command:
+"sudo apt update"
+
+-Install every .deb file from the following location:
+"/home/mint/Downloads/Linux Customization/AppImages & .deb files/Debs"
+
+-Run the following command: 
+"sudo apt install chafa imagemagick jp2a cool-retro-term lxappearance diodon"
+
+-Install conky and conky manager2 with the help of these commands:
+"sudo add-apt-repository ppa:teejee2008/foss"
+"sudo apt update"
+"sudo apt install conky-manager2"
+(If conky is not installed using the above commands, install it using this deb file: "/$HOME/Downloads/Linux Customization/AppImages & .deb files/Optional Debs/conky-manager2_2.72_amd64.deb")
+(Add a fallback option when installing conky, if the PPAs aren't working, install from the provided deb file instead)
+
+-Ask before installing.
+-Run this command to install ohmyposh:
+"curl -s https://ohmyposh.dev/install.sh | bash -s"
+
+
+[This applies to everything]-"Important"
+-Check if the packages were previously installed.
+-Skip any and all installed packages
+-Install and update the packages as necessary
+-Skip any step that has been previously completed.
+-All the steps are to be done in order typed, nothing is to be done before the other
+-Everything is for the current user.
+-Please label everthing to make it easier to edit the bash file.
+-Remove the cloned GitHub folders after installation is complete.
+-Leave the "/home/mint/Downloads/Linux Customization" folder as is.
+-Everything is to have a fallback option back to their .deb files.
+
+
+[Files/Folders to copy]
+-Copy "/$HOME/Downloads/Linux Customization/.fonts: to "/home/mint"
+
+-Copy "/$HOME/Downloads/Linux Customization/fastfetch" to "/$HOME/.config"
+
+-Copy "/$HOME/Downloads/Linux Customization/Wallpapers" to "/$HOME/Downloads"
+
+-Copy "/$HOME/Downloads/Linux Customization/fish" to "/$HOME/.config"
+
+-Copy "/$HOME/Downloads/Linux Customization/.conky" to "/home/mint"
+
+-Copy "/$HOME/Downloads/Linux Customization/btop" to "/$HOME/.config"
+
+-Copy "/$HOME/Downloads/Linux Customization/kando" to "/$HOME/.config"
+
+-Copy "/$HOME/Downloads/Linux Customization/.icons" to "/$HOME/.config" (optional)
+
+-Copy "/$HOME/Downloads/Linux Customization/.themes" to "/$HOME/.config" (optional)
