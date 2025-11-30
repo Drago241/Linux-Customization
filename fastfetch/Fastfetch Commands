@@ -1,0 +1,12 @@
+bash -i -c "fastfetch -c ci.jsonc; exec bash"
+
+bash -i -c "fastfetch -c all.jsonc; exec bash"
+
+
+fastfetch --help
+
+
+
+
+
+
