@@ -1,0 +1,15 @@
+sudo add-apt-repository ppa:teejee2008/foss
+sudo apt update
+sudo apt install conky-manager2
+
+
+"For the Conky rings, if missing"
+sudo apt install conky-all lua5.4 zenity jq python3 python3-tk libqt5widgets5 libqt5gui5 libqt5core5a qt5-gtk2-platformtheme playerctl
+
+
+In case conky keeps minimizing when moving to desktop, change "own_window_type" to "desktop"
+
+
+"Weather id and api key" (https://openweathermap.org/)
+city_id=1174872
+api_key=e46d6b1c945f2e9983f0735f8928ea2f

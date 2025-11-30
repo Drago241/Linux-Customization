@@ -1,0 +1,60 @@
+You can create  your own AppImages and .deb files, just ask ChatGPT to write a script for it.
+Provide a link too.
+
+
+"Disable the kitty protocol in fish shell (5u)" [works for Cool-Retro-Term as well]
+set -Ux fish_features no-keyboard-protocols
+
+
+"lxappearance saves its files in:"
+/home/mint/.local/share
+
+"and the custom settings in:"
+/home/mint/.config/gtk-3.0
+
+
+"For Rofi"
+Instead of changing the .css file, just change any of the .sh files included with the themes and link its directory path to use it.
+
+
+"Weather id and api key" (https://openweathermap.org/)
+city_id=1174872
+api_key=e46d6b1c945f2e9983f0735f8928ea2f
+
+
+"Prerequisites for Gnome Boxes AppImage"
+https://github.com/ivan-hc/Boxes-appimage?tab=readme-ov-file
+sudo apt install libvirt-daemon libvirt-daemon-system
+
+
+"Custom date format"
+%a | %e %b  [%I:%M %p]
+
+
+"Launch cava script"
+/home/mint/CAVA-Desktop.sh
+
+
+"Kando hot-corner"
+kando --menu Custom-Menu
+
+
+"Add a folder to bookmark in file manager"
+ctrl+d
+
+
+"SDDM themes folder directory (root level)"
+/usr/share/sddm/themes
+
+
+"Screen record on linux mint"
+ctrl + alt + shift + r
+
+
+"Open, close and then re-open the Live-Wallpaper script"
+/home/mint/Live-Wallpaper.sh /home/mint/Downloads/Live-Wallpapers/MP4/13.mp4 ; sleep 1 ; killall Live-Wallpaper.sh ; sleep 1 ; /home/mint/Live-Wallpaper.sh /home/mint/Downloads/Live-Wallpapers/MP4/13.mp4
+
+
+"Switch virtual consoles" (can also log-into the system after switching users)
+ctrl+alt+F1/F2
+

@@ -1,0 +1,11 @@
+"Disable repository restrictions"
+sudo nano /etc/apt/sources.list
+
+"To make sure that everything inside /home/mint is owned by the mint user, not root (if files show up as locked)"
+sudo chown -R mint:mint /home/mint
+
+"To remove the CD-ROM sources"
+sudo sed -i '/cdrom:/d' /etc/apt/sources.list
+sudo sed -i '/cdrom:/d' /etc/apt/sources.list.d/*.list
+sudo apt update
+

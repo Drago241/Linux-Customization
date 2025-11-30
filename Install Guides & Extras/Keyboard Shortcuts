@@ -1,0 +1,20 @@
+"Fullscreen"
+alt+F11
+
+
+"Minimize current window"
+alt+m
+
+
+"diodon"
+alt+h
+
+
+""Switch User""
+"dm-tool switch-to-greeter"
+ctrl+alt+s
+
+
+""ROFI""
+"launcher.sh Directory"
+$HOME/.config/rofi/launcher.sh

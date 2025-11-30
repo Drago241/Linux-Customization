@@ -1,0 +1,13 @@
+# Add local binary path to the PATH variable
+set -gx PATH /home/{user}/.local/bin $PATH
+
+# Initialize Oh My Posh with your theme configuration
+oh-my-posh init fish --config /home/{user}/.cache/oh-my-posh/themes/{theme}.omp.json | source
+
+
+
+curl -s https://ohmyposh.dev/install.sh | bash -s
+
+
+
+oh-my-posh upgrade
