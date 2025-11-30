@@ -1,0 +1,148 @@
+/* XFCE4 Panel and Whisker Menu Styles */
+
+/*********/
+/* PANEL CONFIGURATION */
+/*********/
+.xfce4-panel.panel {
+  background-color: var(--panel-color, rgba(0, 0, 0, 0.75)); /* Sets the background color */
+  font-weight: normal; /* Ensures normal font weight */
+  text-shadow: none; /* Disables text shadow */
+  -gtk-icon-shadow: none; /* Disables icon shadow */
+  opacity: var(--panel-opacity, 1.0); /* Sets panel opacity */
+}
+
+.xfce4-panel.panel menu {
+  font-weight: normal;
+}
+
+/*********/
+/* PANEL BUTTONS */
+/*********/
+.xfce4-panel.panel button.flat,
+.xfce4-panel.panel button.sidebar-button {
+  color: #BAC3CF; /* Sets text color */
+  border: none;
+  border-radius: 0;
+  background-color: rgba(43, 46, 55, 0);
+}
+
+.xfce4-panel.panel button.flat:hover,
+.xfce4-panel.panel button.sidebar-button:hover {
+  border: none;
+  background-color: rgba(65, 70, 84, 0.95); /* Changes background on hover */
+}
+
+/*********/
+/* WHISKER MENU WINDOW */
+/*********/
+#whiskermenu-window {
+  background-color: black; /* Sets background color */
+  color: #ccc;
+  border-radius: 10px;
+  opacity: var(--whiskermenu-opacity, var(--panel-opacity, 0.9));
+}
+
+/*********/
+/* WHISKER MENU SCROLLBAR */
+/*********/
+#whiskermenu-window scrollbar {
+  background: transparent;
+}
+
+/*********/
+/* WHISKER MENU ENTRY FIELD */
+/*********/
+#whiskermenu-window entry {
+  background-color: black; /* Sets background color */
+  color: #eee;
+  opacity: var(--whiskermenu-opacity, var(--panel-opacity, 0.9));
+}
+
+/*********/
+/* WHISKER MENU BUTTONS */
+/*********/
+#whiskermenu-window button {
+  background-color: black; /* Sets background color */
+  color: #CDCDCD;
+  margin: 1px 8px 1px 1px;
+  border-radius: 6px;
+  background-image: none;
+  opacity: var(--whiskermenu-opacity, var(--panel-opacity, 0.9));
+}
+
+/*********/
+/* WHISKER MENU TREEVIEW */
+/*********/
+#whiskermenu-window treeview {
+  background-color: black; /* Sets background color */
+  color: #ccc;
+  background-image: none;
+  outline-color: #F00;
+  opacity: var(--whiskermenu-opacity, var(--panel-opacity, 0.9));
+}
+
+/*********/
+/* WHISKER MENU INTERACTIONS */
+/*********/
+#whiskermenu-window button:focus,
+#whiskermenu-window button:hover,
+#whiskermenu-window button:active,
+#whiskermenu-window button:selected,
+#whiskermenu-window treeview:selected,
+#whiskermenu-window treeview:hover,
+#whiskermenu-window treeview:active,
+#whiskermenu-window treeview:focus {
+  background-color: #323232; /* Changes background on interaction */
+  color: #CDCDCD;
+  transition: 200ms;
+  opacity: var(--whiskermenu-opacity, var(--panel-opacity, 0.9));
+}
+
+/*********/
+/* WHISKER MENU ICON VIEW */
+/*********/
+#whiskermenu-window iconview {
+  background: transparent;
+  border-radius: 10px;
+  color: #EFEFEF;
+  opacity: var(--whiskermenu-opacity, var(--panel-opacity, 0.9));
+}
+
+#whiskermenu-window iconview:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+}
+
+/*********/
+/* WHISKER MENU FRAME */
+/*********/
+#whiskermenu-window .frame:first-child {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  opacity: var(--whiskermenu-opacity, var(--panel-opacity, 0.9));
+}
+
+/*********/
+/* XFCE PANEL WINDOW */
+/*********/
+.xfce4-panel#XfcePanelWindow {
+  border-radius: 10px 10px 10px 10px;
+}
+
+/* transparent windows border */
+#whiskermenu-window>frame>border { border-color: transparent; }
+
+
+
+#whiskermenu-window {
+	background-image: url("file:/home/Muhammad-Abdullah/Downloads/wallpaperflare.com_wallpaper-8.jpg");
+}
+#whiskermenu-window entry {
+	background: transparent;
+}
+#whiskermenu-window treeview { 
+	background: transparent;
+}
+
+@import url("xfce4-panel-tweaks.css");

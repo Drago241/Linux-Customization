@@ -1,0 +1,172 @@
+/* Custom settings */
+
+
+
+/*[Panel transparency]*/
+
+.panel-top {
+  font-weight: bold;                     /* Makes panel text bold */
+  background-color: rgba(0, 0, 0, 0);    /* Fully transparent background */
+  border-radius: 0px 0px 0px 0px;        /* No rounded corners */
+  margin-left: 0px;                      /* No left margin */
+  margin-right: 0px;                     /* No right margin */
+  padding-left: 0px;                     /* No left padding */
+  padding-right: 0px;                    /* No right padding */
+}
+
+.panel-left {
+  font-weight: bold;                     /* Makes panel text bold */
+  background-color: rgba(0, 0, 0, 0);    /* Fully transparent background */
+  border-radius: 0px 0px 0px 0px;        /* No rounded corners */
+  margin-left: 0px;                      /* No left margin */
+  margin-right: 0px;                     /* No right margin */
+  padding-left: 0px;                     /* No left padding */
+  padding-right: 0px;                    /* No right padding */
+}
+
+.panel-bottom {
+  background-color: rgba(0, 0, 0, 0); }  /* Fully transparent bottom panel */
+
+.panel-bottom .panelCenter {
+  background-color: rgba(0, 0, 0, 0.0);  /* Fully transparent center */
+  text-align: center;                    /* Centers panel content */
+  border-radius: 12px 12px 12px 12px;    /* Rounded corners on all sides */
+  padding-left: 12px;                    /* Adds space to the left */
+  padding-right: 12px;                   /* Adds space to the right */
+  padding-top: 0px;                      /* No top padding */
+  margin-bottom: 0px; }                  /* No bottom margin */
+
+.menu {
+  background-color: rgba(47, 47, 47, 0.90); } /* Dark semi-transparent menu background */
+
+
+
+/*[Panel roundness and padding]*/
+
+
+.popup-menu-content {
+  padding: 0.5em 0 1.2em 0; } /* Reduces gap at top */
+
+
+.menu-bottom {
+  border-radius: 16px 16px 0 0; } /* Increases border radius on outside of bottom aligned menu */
+
+.menu-top {
+  border-radius: 0 0 16px 16px; } /* Increases border radius on outside of top aligned menu */
+
+.menu-left {
+  border-radius: 0 16px 16px 0; } /* Increases border radius on outside of left aligned menu */
+
+.menu-right {
+  border-radius: 16px 0 0 16px; } /* Increases border radius on outside of right aligned menu */
+
+.menu { /* ----- NEW CINNAMON STYLE DETACHED MENUS WITH FULL ROUND CORNERS. DELETE THIS SECTION IF YOU WANT MENUS ATTACHED TO PANEL ----- */
+  border-radius: 16px; 
+  margin: 10px; }
+
+
+.menu-search-box:ltr {
+  padding: 1px 6px 12px 30px;} /* Increases spacing around menu search box */
+
+#menu-search-entry {
+  border-radius: 999px; /* Makes sides of search box into a full semi-circle */
+  padding: 8px 12px; /* Increases padding inside menu search box */
+  font-size: 120%; } /* Increases menu search box font size */
+
+.menu-favorites-box {
+  margin-left: 0.45em; /* Move favorites box slightly to the right */
+  padding: 0; } /* Reduces padding inside menu favorites box */
+
+.menu-favorites-box, .menu-favorites-button {border-radius: 5px; } /* Reduces border radius on outside of favorites box */
+  
+.menu-selected-app-title {font-size: 125%; margin: 3px 0; font-weight: 500;} /* Increases app title font size (bottom right of menu) and space above and below this line */
+
+.menu-selected-app-box, .menu-selected-app-box:rtl {
+  height: 3.4em; } /* Reduce line height to compensate for larger font in above line */
+
+.calendar-events-main-box {
+  margin-top: .5em; } /* Increases padding at top of calendar events main box */
+
+.calendar-events-date-label {
+  padding: .4em .1em .5em .1em; } /* Increases padding at top of calendar events label */
+
+
+
+/*[Panel highlights]*/
+
+
+/* --- Top Panel --- */
+.panel-top .panel-button:hover,
+.panel-top .applet-box:hover,
+.panel-top .applet-box:checked,
+.panel-top .window-list-item-box:hover,
+.panel-top .window-list-item-box:focus,
+.panel-top .grouped-window-list-item-box:hover,
+.panel-top .grouped-window-list-item-box:focus {
+    background-color: rgba(255,255,255,0.02) !important; /* subtle glow */
+    border: none !important;                           /* no border */
+    box-shadow: none !important;                       /* no shadow */
+    border-radius: 6px !important;                     /* rounded corners */
+}
+
+/* --- Bottom Panel --- */
+.panel-bottom .panel-button:hover,
+.panel-bottom .applet-box:hover,
+.panel-bottom .applet-box:checked,
+.panel-bottom .window-list-item-box:hover,
+.panel-bottom .window-list-item-box:focus,
+.panel-bottom .grouped-window-list-item-box:hover,
+.panel-bottom .grouped-window-list-item-box:focus {
+    background-color: rgba(255,255,255,0.1) !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+/* --- Left Panel --- */
+.panel-left .panel-button:hover,
+.panel-left .applet-box:hover,
+.panel-left .applet-box:checked,
+.panel-left .window-list-item-box:hover,
+.panel-left .window-list-item-box:focus,
+.panel-left .grouped-window-list-item-box:hover,
+.panel-left .grouped-window-list-item-box:focus {
+    background-color: rgba(255,255,255,0.1) !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+/* --- right Panel --- */
+.panel-right .panel-button:hover,
+.panel-right .applet-box:hover,
+.panel-right .applet-box:checked,
+.panel-right .window-list-item-box:hover,
+.panel-right .window-list-item-box:focus,
+.panel-right .grouped-window-list-item-box:hover,
+.panel-right .grouped-window-list-item-box:focus {
+    background-color: rgba(255,255,255,0.1) !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 6px !important;
+}
+
+
+
+/*[Overview Settings]*/
+
+/* --- Show All Windows --- */
+.window-border {
+    border-radius: 6px !important;   /* set roundness (try 8px–20px) */
+    border: 3px solid #0c75de !important; /* keep the Mint-Y blue */
+    background-color: transparent !important; /* subtle transparent fill */
+    box-shadow: 0 0 10px rgba(0,0,0,0.4) !important; /* soft outer glow */
+}
+
+/* --- Show All Workspaces --- */
+.expo-workspace-thumbnail-frame#active {
+    border-radius: 6px !important;   /* set roundness (try 8px–20px) */
+    border: 3px solid #0c75de !important; /* keep the Mint-Y blue */
+    background-color: transparent !important; /* subtle transparent fill */
+    box-shadow: 0 0 10px rgba(0,0,0,0.4) !important; /* soft outer glow */
+}

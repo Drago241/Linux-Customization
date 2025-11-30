@@ -1,0 +1,9 @@
+#whiskermenu-window {
+	background-image: url("file:/home/Muhammad-Abdullah/Downloads/PngItem_694521.png");
+}
+#whiskermenu-window entry {
+	background: transparent;
+}
+#whiskermenu-window treeview { 
+	background: transparent;
+}
